@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = Post.all
   end
@@ -9,18 +8,20 @@ class PostsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    redirect_to action: :show, id: @post.id
+    if (@post.save)
+      redirect_to action: :show, id: @post.id
+    else
+      flash[:alert] = 'Post olusturulurken hata oldu'
+      render :new
+    end
   end
 
   private
   def post_params
     params.require(:post).permit(:title, :body)
   end
-
 end
