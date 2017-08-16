@@ -13,15 +13,16 @@
             <td><%= post.title %></td>
             <td><%= post.body %></td>
             <td>
-              <%= link_to 'edit', edit_post_path(post.id) %>
-              <%= link_to 'delete', post_path(post.id), method: :delete %>
+              <%= link_to 'edit', edit_post_path(post.id), :class => "btn btn-secondary" %>
+              <%= link_to 'delete', post_path(post.id), :class => "btn btn-danger", data: {confirm: 'Are you sure?'}, method: :delete %>
+              <%= link_to 'read more', post_path(post), :class =>"btn btn-warning" %>
             </td>
           </tr>
         <%end%>
       </tbody>
     </table>
-
-    <%=link_to "new post", new_post_path %>
-    <%= link_to "Sign out", destroy_user_session_path , method: :delete %>
+  </br>
+    <%=link_to "new post", new_post_path, :class => "btn btn-info" %>
+    <%= link_to "Sign out", destroy_user_session_path, :class => "btn btn-primary", method: :delete %>
   </div>
 </div>
