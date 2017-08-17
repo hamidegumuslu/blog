@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @comment = Comment.new(comment_params)
     @comment.user = current_user
@@ -8,8 +7,7 @@ class CommentsController < ApplicationController
       redirect_to post_path(@comment.post_id)
     else
       Rails.logger.debug(@comment.errors.inspect)
-    end
-
+      flash[:alert] = 'Post olusturulurken hata oldu'
   end
 
   private

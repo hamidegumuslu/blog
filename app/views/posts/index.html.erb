@@ -1,20 +1,21 @@
 <div class = "row">
-  <div class = "col-md-12" align = "center">
+  <div class = "col-md-9">
     <h2>Blog Posts</h2>
     <table>
       <thead>
-        <th>Post title</th>
-        <th>Post Body</th>
+        <th><h2><strong>Post Title</strong></h2></th>
+        <th><h2><strong>Post Body</strong></h2></th>
         <th></th>
       </thead>
       <tbody>
         <% @posts.each do |post|%>
           <tr>
-            <td><%= post.title %></td>
-            <td><%= post.body %></td>
+            <td><h3><%= post.title %></h3></td>
+            <td><h3><%= post.body %></h3></td>
             <td>
               <%= link_to 'edit', edit_post_path(post.id), :class => "btn btn-secondary" %>
-              <%= link_to 'delete', post_path(post.id), :class => "btn btn-danger", data: {confirm: 'Are you sure?'}, method: :delete %>
+              <%= link_to 'delete', post_path(post.id), :class => "btn btn-danger",
+                data: {confirm: 'Are you sure?'}, method: :delete %>
               <%= link_to 'read more', post_path(post), :class =>"btn btn-warning" %>
             </td>
           </tr>
@@ -24,5 +25,8 @@
   </br>
     <%=link_to "new post", new_post_path, :class => "btn btn-info" %>
     <%= link_to "Sign out", destroy_user_session_path, :class => "btn btn-primary", method: :delete %>
+  </div>
+  <div class = "col-md-3">
+
   </div>
 </div>
