@@ -23,7 +23,6 @@ class PostsController < ApplicationController
     if (@post.save)
       redirect_to action: :show, id: @post.id
     else
-      Rails.logger.debug(@post.errors.inspect)
       flash[:alert] = 'Post olusturulurken hata oldu'
       render :new
     end
