@@ -1,0 +1,14 @@
+<div class = "row">
+  <div class = "col-md-12">
+    <h2><%=@category.name%></h2>
+      <div>
+        <%- @category.posts.each do |c| %>
+          <p><b><%=c.title%></b></p>
+          <p><%=c.body%></p>
+        <% end -%>
+      </div>
+  </div>
+</div>
+<div class = "row">
+  <%= link_to 'back', root_path, :class => "btn btn-primary" %>
+</div>
