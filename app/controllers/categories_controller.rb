@@ -8,8 +8,12 @@ class CategoriesController < ApplicationController
   end
   def create
     @category = Category.new(category_params)
-    @category.save
-    redirect_to new_category_path
+    if (@category.save)
+      redirect_to new_category_path
+    else
+      flash[:alert] = "Kategori oluşturulurken hata oluştu"
+      redirect_to new_category_path
+    end
   end
   private
   def category_params
