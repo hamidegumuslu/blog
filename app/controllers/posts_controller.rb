@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     if (@post.save)
       redirect_to action: :show, id: @post.id
     else
+      Rails.logger.debug(@post.errors.inspect)
       flash[:alert] = 'Post olusturulurken hata oldu'
       render :new
     end
@@ -45,6 +46,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, category_ids: [])
   end
 end
