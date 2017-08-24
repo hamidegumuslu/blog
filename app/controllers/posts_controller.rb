@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.image = params[:file]
     @post.user = current_user
     if (@post.save)
       redirect_to action: :show, id: @post.id

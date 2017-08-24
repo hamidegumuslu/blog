@@ -2,10 +2,15 @@
   <div class = "col-md-12">
     <h2><strong><%= @post.title %></strong></h2>
     <h3>- <%= @post.body %></h3>
+    <%= image_tag(@post.image_url.to_s) %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
     <%=link_to 'All Post', posts_path, :class => "btn btn-primary" %>
     <%=link_to "Edit", edit_post_path(@post), :class => "btn btn-warning"%>
     <%=link_to "Delete", post_path(@post), data: {confirm: 'Are you sure?'},
-    method: :delete, :class => "btn btn-danger"%>
+      method: :delete, :class => "btn btn-danger"%>
   </div>
 </div>
 <div class="row my-3">
