@@ -19,6 +19,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.image = params[:file]
     @post.user = current_user
     if (@post.save)
       redirect_to action: :show, id: @post.id
@@ -45,6 +46,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :body, category_ids: [])
+    params.require(:post).permit(:title, :body, :image, category_ids: [])
   end
 end

@@ -7,4 +7,6 @@ class Post < ApplicationRecord
   validates :body, presence: true
 
   accepts_nested_attributes_for :categories
+
+  mount_uploader :image, ImageUploader
 end
