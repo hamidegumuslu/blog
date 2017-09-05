@@ -6,8 +6,8 @@ class CommentsController < ApplicationController
       flash[notice] = "Thanks for the comment"
       redirect_to post_path(@comment.post_id)
     else
-      Rails.logger.debug(@comment.errors.inspect)
-      flash[:alert] = 'Post olusturulurken hata oldu'
+      flash[:alert] = 'Comment olusturulurken hata oldu'
+    end
   end
 
   private
