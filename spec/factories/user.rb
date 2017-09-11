@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :user do
-    email "test@gmail.com"
+    name "Hamide"
+    surname "Gumuslu"
     password "111111"
-    username "testusername"
+    username {"#{name}.#{surname}"}
+    email { "#{name}.#{surname}@example.com".downcase }
   end
 end

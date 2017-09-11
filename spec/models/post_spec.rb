@@ -3,8 +3,8 @@ require "rails_helper"
 RSpec.describe Post, :type => :model do
   describe "Validations" do
     it "title and body cant be blank" do
-      post = create(:post)
-      u = create(:user)
+      post = Post.new
+      u = FactoryGirl.build(:user)
       post.user = u
       expect(post).not_to be_valid
     end
