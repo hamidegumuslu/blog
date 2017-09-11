@@ -1,3 +1,4 @@
+require 'carrierwave/orm/activerecord'
 class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :user

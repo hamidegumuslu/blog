@@ -203,7 +203,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha3)
   byebug
   capybara (~> 2.13)
-  carrierwave
+  carrierwave (~> 1.0)
   coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)

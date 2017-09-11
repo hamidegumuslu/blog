@@ -1,7 +1,8 @@
 <div class ="row my-3">
   <div class = "col-md-12">
     <h2><strong><%= @post.title %></strong></h2>
-    <h3>- <%= @post.body %></h3>
+    <h3> <%= @post.body %></h3>
+
     <%= image_tag(@post.image_url.to_s) %>
   </div>
 </div>
