@@ -3,20 +3,16 @@ require "rails_helper"
 RSpec.describe Post, :type => :model do
   describe "Validations" do
     it "title and body cant be blank" do
-      post = Post.new
-      post.title = "deneme"
-      u = User.new
-      u.email = 'deneme@yahoo.com'
-      u.password = "123123123123deneme"
-      u.save
+      post = create(:post)
+      u = create(:user)
       post.user = u
       expect(post).not_to be_valid
     end
   end
-  describe "ActiveRecord associations" do
+  describe "Associations" do
     it "post has many comments" do
       post = Post.reflect_on_association(:comments)
-      expect(post.macro).to eq(:has_many)
+      expect(post.macro)==:has_many
     end
     it "post belongs to user" do
       post_user = Post.reflect_on_association(:user)
